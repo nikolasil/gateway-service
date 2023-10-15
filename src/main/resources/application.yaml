@@ -8,9 +8,7 @@ spring:
           uri: http://127.0.0.1:8080
           predicates:
             - Host=iliopoulos-nikolas.xyz
-            - Path=*
         - id: seasidehouseinneamakri
           uri: http://127.0.0.1:8081
           predicates:
             - Host=seasidehouseinneamakri.com
-            - Path=*
