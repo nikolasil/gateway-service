@@ -5,10 +5,10 @@ spring:
     gateway:
       routes:
         - id: iliopoulos
-          uri: http://172.31.38.173:8080
+          uri: http://172.31.0.221:8080
           predicates:
             - Host=iliopoulos-nikolas.xyz
         - id: seasidehouseinneamakri
-          uri: http://172.31.38.173:8081
+          uri: http://172.31.0.221:8081
           predicates:
             - Host=seasidehouseinneamakri.com
