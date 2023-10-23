@@ -12,6 +12,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag ec2-gateway-service:latest
+        run: docker build . --file Dockerfile --tag nikolasil/ec2-gateway-service:latest
       - name: Push Docker image to Docker Hub
         run: docker push nikolasil/ec2-gateway-service:latest
