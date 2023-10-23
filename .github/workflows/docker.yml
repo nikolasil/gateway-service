@@ -27,6 +27,6 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           script: |
-            docker stop gatewayService || true
-            docker rm gatewayService || true
-            docker run -d --name gatewayService -p 80:80 nikolasil/ec2-gateway-service:latest
+            sudo docker stop gatewayService || true
+            sudo docker rm gatewayService || true
+            sudo docker run -d --name gatewayService -p 80:80 nikolasil/ec2-gateway-service:latest
