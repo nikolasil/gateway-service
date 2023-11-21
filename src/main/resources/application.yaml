@@ -11,4 +11,4 @@ spring:
         - id: seasidehouseinneamakri
           uri: http://172.31.0.221:8081
           predicates:
-            - Host=seasidehouseinneamakri.com
+            - Host=iliopoulosrent.com, seasidehouseinneamakri.com
