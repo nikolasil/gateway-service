@@ -7,8 +7,8 @@ spring:
         - id: iliopoulos
           uri: http://172.31.0.221:8080
           predicates:
-            - Host=iliopoulos-nikolas.xyz
+            - Host=iliopoulos-nikolas.xyz, www.iliopoulos-nikolas.xyz
         - id: seasidehouseinneamakri
           uri: http://172.31.0.221:8081
           predicates:
-            - Host=iliopoulosrent.com, seasidehouseinneamakri.com
+            - Host=iliopoulosrent.com, www.iliopoulosrent.com, seasidehouseinneamakri.com, www.seasidehouseinneamakri.com
