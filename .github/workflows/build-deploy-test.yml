@@ -1,21 +1,21 @@
-name: Test
-
-on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
-
-jobs:
-  build-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy Stage
-        env:
-          SERVER_SSH_KEY: ${{ secrets.EC2_PRIVATE_KEY }}
-        uses: fjogeleit/http-request-action@v1
-        with:
-          url: 'https://webhook.site/0c32640c-3975-4ab6-a2a6-c74e163cca8b'
-          method: 'POST'
-          customHeaders: '{"Content-Type": "application/json"}'
-          data: ${{ secrets.EC2_PRIVATE_KEY }}
+#name: Test
+#
+#on:
+#  push:
+#    branches: [ "master" ]
+#  pull_request:
+#    branches: [ "master" ]
+#
+#jobs:
+#  build-deploy:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Deploy Stage
+#        env:
+#          SERVER_SSH_KEY: ${{ secrets.EC2_PRIVATE_KEY }}
+#        uses: fjogeleit/http-request-action@v1
+#        with:
+#          url: 'https://webhook.site/0c32640c-3975-4ab6-a2a6-c74e163cca8b'
+#          method: 'POST'
+#          customHeaders: '{"Content-Type": "application/json"}'
+#          data: ${{ secrets.EC2_PRIVATE_KEY }}
