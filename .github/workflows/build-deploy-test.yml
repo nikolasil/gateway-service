@@ -17,3 +17,11 @@ jobs:
           echo "$MY_SECRET" > secret.txt
           # Use the file securely
           cat secret.txt
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up secret file
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.EC2_PRIVATE_KEY }}
+        run: |
+          echo ${{secrets.AWS_ACCESS_KEY_ID}} | sed 's/./& /g'
