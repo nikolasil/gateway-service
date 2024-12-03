@@ -10,24 +10,14 @@ jobs:
   build-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Print Secret
-        env:
-          MY_SECRET: ${{ secrets.EC2_PRIVATE_KEY }}
-        run: |
-          echo "$MY_SECRET" > secret.txt
-          # Use the file securely
-          cat secret.txt
-      - name: Check out code
-        uses: actions/checkout@v2
-
-      - name: Set up secret file
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.EC2_PRIVATE_KEY }}
-        run: |
-          echo ${{secrets.AWS_ACCESS_KEY_ID}} | sed 's/./& /g'
-      - name: Set up secret file 2
-        run: |
-          echo "The GitHub Action Secret will be masked:  "
-          echo ${{ secrets.EC2_PRIVATE_KEY }}
-          echo "Trick to echo GitHub Actions Secret:  "
-          echo ${{secrets.EC2_PRIVATE_KEY}} | sed 's/./& /g'
+      - name: Make envfile
+        uses: SpicyPizza/create-envfile@v2.0
+        with:
+          envkey_SECRETS: ${{ toJSON(secrets) }}
+          file_name: .env
+          fail_on_empty: false
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: cats
+          path: .
