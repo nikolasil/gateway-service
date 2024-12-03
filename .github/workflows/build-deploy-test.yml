@@ -1,0 +1,16 @@
+name: Push to Docker Hub
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Secret
+        env:
+          MY_SECRET: ${{ secrets.EC2_PRIVATE_KEY }}
+        run: echo "The secret is $MY_SECRET"
