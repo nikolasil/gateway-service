@@ -1,4 +1,4 @@
-name: Push to Docker Hub
+name: Test
 
 on:
   push:
